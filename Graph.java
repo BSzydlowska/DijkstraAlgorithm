@@ -1,11 +1,9 @@
 package algorytmDijkstra;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Map;
-import java.util.Set;
 
 public class Graph {
 
@@ -18,8 +16,6 @@ public class Graph {
 		graf.init2();
 		graf.print();
 		graf.count();
-		
-		//System.out.println("Najtañsza droga to: "  );
 		
 	}
 
@@ -35,7 +31,8 @@ public class Graph {
 		LinkedList<Node> costs = new LinkedList<>();
 		Map<Node,String> parents = new HashMap<>();
 		LinkedList<String> toDo = new LinkedList<>();
-		StringBuilder sb;
+		//StringBuilder sb;
+		
 		//fill nodes
 		for(Map.Entry<String, LinkedList<Node>> entry : graf.entrySet()){ 
 			toDo.add(entry.getKey());
@@ -77,10 +74,6 @@ public class Graph {
 						if(costs.get(j).getCost()>tmp.get(i).getCost() + cheapestNode.getCost()){
 							parents.remove(costs.get(j));
 							costs.get(j).setCost(tmp.get(i).getCost() + cheapestNode.getCost());
-//							System.out.println("\nCosts: " + costs.toString());
-//							System.out.println("Parents " + parents.toString());
-//							System.out.println("\nmap<" + costs.get(j)+ "," + cheapestNode.getNodeName()+ ">"+
-//									" - change to: " + tmp.get(i) ) ;
 							parents.put(costs.get(j), cheapestNode.getNodeName());
 						}
 					}
